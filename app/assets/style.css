@@ -6,14 +6,14 @@
 
 .navbar {
 	margin-bottom: 0;
-	border-bottom: 3px solid #63D148
+	border-bottom: 3px solid #63D148;
 }
 
 .fa-link {
 	margin-right: 10px;
 }
 
-#orange {
+.orange {
 	color: #D66313;
 }
 
@@ -58,11 +58,17 @@
 }
 
 footer {
-	background-color: #ccc;
-	height: 50px;
+	background-color: black;
+	border-top: 3px solid #63D148;
+	margin-top: 80px;
+	height: 100px;
 }
 
 .footer {
-	margin-top: 80px;
-	padding-top: 15px;
+	padding-top: 40px;
+}
+
+.footer-text {
+	color: white;
+	font-family: 'Merienda One', cursive;
 }
