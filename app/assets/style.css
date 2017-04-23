@@ -44,9 +44,17 @@
 	font-size: 22px;
 }
 
+.bio-section {
+	margin-top: 80px;
+}
+
 .member-photo {
 	border-radius: 100%;
-	height: 150px;
+	height: 250px;
+}
+
+.bio-text {
+	margin-top: 80px;
 }
 
 footer {
@@ -55,5 +63,6 @@ footer {
 }
 
 .footer {
-	margin-top: 20px;
+	margin-top: 80px;
+	padding-top: 15px;
 }
