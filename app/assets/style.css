@@ -1,3 +1,16 @@
+/* ===================================================
+
+MAIN PAGE SECTION
+
+COLORS 
+	light blue: #AED6F1;
+	light green: #DAF7A6;
+	orange: #F39C12;
+
+
+===================================================*/
+
+
 .jumbotron {
 	background: url("friends-main.jpg") no-repeat center center;
 	background-size: 100% 100%;
@@ -6,7 +19,7 @@
 
 .navbar {
 	margin-bottom: 0;
-	border-bottom: 3px solid #63D148;
+	border-bottom: 3px solid #DAF7A6;
 }
 
 .fa-link {
@@ -14,12 +27,17 @@
 }
 
 .orange {
-	color: #D66313;
+	color: #F39C12;
 }
 
 .btn-primary {
-	background-color: #D66313;
+	background-color: #F39C12;
 }
+
+.btn-primary:hover {
+	background-color: #D35400;
+}
+
 
 .navbar-text {
 	font-family: 'Merienda One', cursive;
@@ -73,6 +91,44 @@ footer {
 	font-family: 'Merienda One', cursive;
 }
 
+
+
+/* ===================================================
+
+SURVEY FORM SECTION
+
+===================================================*/
+
+#survey-page {
+	background-color: #AED6F1;
+}
+
+#survey-header, h1{
+	padding-top: 20px;
+	margin-top: 95px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.fa-address-card-o {
+	padding-right: 20px;
+}
+
+.form-subheading {
+	padding: 30px 0 0 0;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 35px;
+}
+
 .form-container {
-	max-width: 700px;
+	box-shadow: 0 8px 10px 10px rgba(0, 0, 0, 0.2), 0 8px 20px 10px rgba(0, 0, 0, 0.19);
+	padding: 0 40px 40px 40px;
+	margin-top: 100px;
+	margin-bottom: 50px;
+	background-color: white;
+}
+
+.form-group {
+	margin-bottom: 30px;
 }
