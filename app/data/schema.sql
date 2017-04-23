@@ -21,13 +21,13 @@ CREATE TABLE friends(
 
 
 
-INSERT INTO friends (name, phoneNumber, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
+INSERT INTO friends (name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
 VALUES ("Giselle", "http://img.usmagazine.com/article-leads-vertical-300/1251302895_gisele_bundchen_290x402.jpg", 1, 2, 4, 5, 1, 2, 3, 4, 4, 5);
 
-INSERT INTO friends (name, phoneNumber, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
+INSERT INTO friends (name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
 VALUES ("Tom", "http://img.usmagazine.com/article-leads-vertical-300/1251126592_tom_brady_290x402.jpg", 3, 2, 1, 2, 4, 2, 3, 5, 2, 1);
 
-INSERT INTO friends (name, phoneNumber, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
+INSERT INTO friends (name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
 VALUES ("Spicer", "https://upload.wikimedia.org/wikipedia/commons/3/3f/Press_secretary_Sean_Spicer.jpg", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 
