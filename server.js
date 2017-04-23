@@ -3,8 +3,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var path = require('path');
-<<<<<<< HEAD
-=======
 
 //serve up public folder and all content as static files from server to client.
 app.use(express.static(path.join(__dirname,'app/public'))); //not sure why this is needed or if itll work
@@ -23,4 +21,3 @@ app.use('/', routes);  // A default USE route that leads to home.html which disp
 app.listen(process.env.PORT || 8000, function(){
 	process.env.PORT === undefined? console.log("App listening on PORT 8000"):console.log("App listening on PORT"+ process.env.PORT);
 });
->>>>>>> isaac
