@@ -36,11 +36,11 @@ COLORS
 
 .btn-primary:hover {
 	background-color: #D35400;
+
 }
 
 
 .navbar-text {
-	font-family: 'Merienda One', cursive;
 	color: white !important;
 }
 
