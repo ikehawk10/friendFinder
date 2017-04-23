@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-//Import Routes.js and use this for all routing.
-var routes = require('./app/routing/routes.js');
+//Import htmlRoutes.js and use this for all routing.
+var routes = require('./htmlRoutes.js');
 app.use('/', routes);  // A default USE route that leads to home.html which displays the home page.
 
 
