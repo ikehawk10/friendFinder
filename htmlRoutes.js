@@ -49,13 +49,17 @@ router.get("/api/friends", function(req, res){
 	});
 });
 
+var currentUser;
+var name;
+var photo;
+
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 router.post('/survey', function(req, res){
 	console.log(req.body);
 
-	let name = req.body.name;
-	let photo = req.body.photo;
-	let Q1 = req.body.Q1;
+	name = req.body.name;
+	photo = req.body.photo;
+	let Q1 = parseInt(req.body.Q2);
 	let Q2 = parseInt(req.body.Q2);
 	let Q3 = parseInt(req.body.Q3);
 	let Q4 = parseInt(req.body.Q4);
@@ -68,8 +72,9 @@ router.post('/survey', function(req, res){
 	
 
 	connection.query('INSERT INTO friends(name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', [name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]);
-
 	res.redirect('/results');
 });
 
 module.exports = router;
+module.exports.name = name;
+module.exports.photo = photo;  

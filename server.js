@@ -5,7 +5,7 @@ var app = express();
 var path = require('path');
 
 //serve up public folder and all content as static files from server to client.
-app.use(express.static(path.join(__dirname,'app/public'))); //not sure why this is needed or if itll work
+//app.use(express.static(path.join(__dirname,'app/public'))); //not sure why this is needed or if itll work
 
 //use bodyParser, do not encode url.
 app.use(bodyParser.urlencoded({
