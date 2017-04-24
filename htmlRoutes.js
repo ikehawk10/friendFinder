@@ -20,6 +20,7 @@ connection.connect();
 
 //Send home.html when home route is hit
 router.get('/', function(req, res) {
+	console.log("TESTING");
     res.sendFile(path.join(__dirname, "app/public/home.html"));
 });
 
@@ -37,29 +38,28 @@ router.get("/results", function(req, res){
 //this is in the server.js file!!! 
 
 
-
 // ------------------------- apiRoutes.js ------------------------------------------------------------- //
-
+//use bodyParser, do not encode url.
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 // A GET route with the url /api/friends to display a JSON of all possible friends.
-router.get("/api/friends", function(req, res){
+app.get("/api/friends", function(req, res){
 	connection.query("SELECT * FROM friends", function(err, data){
 		if(err) throw err;
 		res.send(data);
 	});
 });
 
-var currentUser;
-var name;
-var photo;
 
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 router.post('/survey', function(req, res){
 	console.log(req.body);
 
-	name = req.body.name;
-	photo = req.body.photo;
-	let Q1 = parseInt(req.body.Q2);
+	var name = req.body.name;
+	var photo = req.body.photo;
+	let Q1 = parseInt(req.body.Q1);
 	let Q2 = parseInt(req.body.Q2);
 	let Q3 = parseInt(req.body.Q3);
 	let Q4 = parseInt(req.body.Q4);
@@ -69,6 +69,7 @@ router.post('/survey', function(req, res){
 	let Q8 = parseInt(req.body.Q8);
 	let Q9 = parseInt(req.body.Q9);
 	let Q10 = parseInt(req.body.Q10);
+	console.log(userArr); 
 	
 
 	connection.query('INSERT INTO friends(name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', [name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]);
@@ -76,5 +77,5 @@ router.post('/survey', function(req, res){
 });
 
 module.exports = router;
-module.exports.name = name;
-module.exports.photo = photo;  
+//module.exports = name;
+// module.exports = photo;  
