@@ -5,7 +5,7 @@ $(document).ready(function(){
 // const path = require('path');
 // const mysql = require('mysql');
 
-var lisa= { name: 'Lisa',
+var Lisa= { name: 'Lisa',
   photo: 'www.pinterest.com',
   Q1: 2,
   Q2: 2,
@@ -29,7 +29,7 @@ var lisa= { name: 'Lisa',
 
 	$.ajax({
 		url: "/api/friends",
-		method: "GET"
+		method: GET
 	}).done(function(res){
 		console.log(res); //logging it to parse through it
 
@@ -80,7 +80,7 @@ var lisa= { name: 'Lisa',
 		var currentDiff = Q1 + Q2 + Q3 + Q4 + Q5 + Q6 + Q7 + Q8 + Q9 + Q10;
 
 		//add each absolute difference to the current total diff
-
+		}; //end of for loop
 	}; //end of evalFriend 
 
 

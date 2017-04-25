@@ -39,7 +39,7 @@ router.get("/results", function(req, res){
 
 
 // A GET route with the url /api/friends to display a JSON of all possible friends.
-app.get("/api/friends", function(req, res){
+router.get("/api/friends", function(req, res){
 	connection.query("SELECT * FROM friends", function(err, data){
 		if(err) throw err;
 		res.send(data);
