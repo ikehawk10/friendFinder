@@ -6,6 +6,11 @@ const path = require('path');
 const mysql = require('mysql');
 
 
+//use bodyParser, do not encode url.
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
 var routes = require("./htmlRoutes");
 app.use("/", routes);
 

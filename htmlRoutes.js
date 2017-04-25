@@ -20,7 +20,6 @@ connection.connect();
 
 //Send home.html when home route is hit
 router.get('/', function(req, res) {
-	console.log("TESTING");
     res.sendFile(path.join(__dirname, "app/public/home.html"));
 });
 
@@ -34,15 +33,10 @@ router.get("/results", function(req, res){
 	res.sendFile(path.join(__dirname, "app/public/results.html"));
 });
 
-// A default USE route that leads to home.html which displays the home page.
-//this is in the server.js file!!! 
 
 
 // ------------------------- apiRoutes.js ------------------------------------------------------------- //
-//use bodyParser, do not encode url.
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+
 
 // A GET route with the url /api/friends to display a JSON of all possible friends.
 app.get("/api/friends", function(req, res){
@@ -57,9 +51,9 @@ app.get("/api/friends", function(req, res){
 router.post('/survey', function(req, res){
 	console.log(req.body);
 
-	var name = req.body.name;
-	var photo = req.body.photo;
-	let Q1 = parseInt(req.body.Q1);
+	let name = req.body.name;
+	let photo = req.body.photo;
+	let Q1 = req.body.Q1;
 	let Q2 = parseInt(req.body.Q2);
 	let Q3 = parseInt(req.body.Q3);
 	let Q4 = parseInt(req.body.Q4);
@@ -69,12 +63,13 @@ router.post('/survey', function(req, res){
 	let Q8 = parseInt(req.body.Q8);
 	let Q9 = parseInt(req.body.Q9);
 	let Q10 = parseInt(req.body.Q10);
-	console.log(userArr); 
 	
 
 	connection.query('INSERT INTO friends(name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', [name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]);
+
 	res.redirect('/results');
 });
+
 
 module.exports = router;
 //module.exports = name;
