@@ -36,9 +36,10 @@ COLORS
 
 .btn-primary:hover {
 	background-color: #D35400;
-
 }
-
+.btn-primary:focus {
+	background-color: #D35400;
+}
 
 .navbar-text {
 	color: white !important;
@@ -95,7 +96,7 @@ footer {
 
 /* ===================================================
 
-SURVEY FORM SECTION
+SURVEY PAGE
 
 ===================================================*/
 
@@ -132,3 +133,45 @@ SURVEY FORM SECTION
 .form-group {
 	margin-bottom: 30px;
 }
+
+
+/*====================================================
+
+RESULTS PAGE
+
+=====================================================*/
+
+.item {
+	height: 100%;
+}
+
+#carousel {
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
