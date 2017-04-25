@@ -145,8 +145,16 @@ RESULTS PAGE
 	height: 100%;
 }
 
-#carousel {
-	
+#carousel-example-generic {
+	margin: 20px 0;
+}
+
+#more-info {
+	margin-bottom: 50px;
+}
+
+.results-title {
+	margin-top: 25px;
 }
 
 

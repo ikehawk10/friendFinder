@@ -56,7 +56,7 @@ var lisa= { name: 'Lisa',
 				bestFriend = res[i];
 			}
 
-			console.log("Best friend is" + res[i].name);
+			//console.log("Best friend is" + res[i].name);
 		} //end of first friend loop
 
 
