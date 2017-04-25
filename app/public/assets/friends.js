@@ -40,26 +40,31 @@ var lisa= { name: 'Lisa',
 		var dataToInsert = "";
 		//identify user entry from post method in routes
 
+		let bestDiff = 40;
+		let bestFriend;
+
 		//loop through friends in database
 		for(var i = 0; i < res.length; i++){
 			//set var to hold best total diff in answers and best friend index
-			let bestDiff = 40; //worst possible match
-			let bestFriend = res[1];
+			// bestDiff = 40; //worst possible match
+			// bestFriend = res[1];
 			
 			// set var = 0 for current total diff
 			let currentDiff =0;
 			
 			// call evalFriend() to the friend in the database at [i]
 			evalFriend(res[i]);
+			//console.log(res[i].name);
 			// if the current total diff < best total diff, reset the best and the best friend index with current
 			if( currentDiff < bestDiff){
-				bestFriend = res[i];
+				bestFriend = res[i].name;
+				bestDiff = currentDiff;
 			}
 
 			//console.log("Best friend is" + res[i].name);
 		} //end of first friend loop
 
-
+		console.log("the best diff is " + bestDiff + " and the best friend is " + bestFriend);
 	}); //end .done
 
 	function evalFriend(data){
@@ -78,7 +83,7 @@ var lisa= { name: 'Lisa',
 
 
 		var currentDiff = Q1 + Q2 + Q3 + Q4 + Q5 + Q6 + Q7 + Q8 + Q9 + Q10;
-
+		console.log(currentDiff + "CURRENT DIFF")
 		//add each absolute difference to the current total diff
 
 	}; //end of evalFriend 
