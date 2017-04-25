@@ -1,31 +1,10 @@
 $(document).ready(function(){
 	console.log("friends.js is linked and ready!");
 
-// const htmlRoutes = require('htmlRoutes.js'); //to get the name and phone of current user
-// const path = require('path');
-// const mysql = require('mysql');
 
-var lisa= { name: 'Lisa',
-  photo: 'www.pinterest.com',
-  Q1: 2,
-  Q2: 2,
-  Q3: 2,
-  Q4: 2,
-  Q5: 2,
-  Q6: 2,
-  Q7: 2,
-  Q8: 2,
-  Q9: 2,
-  Q10: 2};
-
-
-
-
-	// connection.query("SELECT id FROM friends WHERE name=" + name + "AND photo=" + photo, function(err, data){
-	// 	if(err) throw err;
-	// 	res.send(data);
-	// 	console.log(data);
-	// });
+let bestDiff;
+let bestFriend;
+let currentDiff;
 
 	$.ajax({
 		url: "/api/friends",
@@ -40,50 +19,63 @@ var lisa= { name: 'Lisa',
 		var dataToInsert = "";
 		//identify user entry from post method in routes
 
-		let bestDiff = 40;
-		let bestFriend;
+
+		let user = res.length - 1;
+		
+
+		//find the initial comparison difference
+		firstFriend(res[0], res[user]);
+		// console.log("initial best diff " + bestDiff + " first friend is " + bestFriend);
 
 		//loop through friends in database
-		for(var i = 0; i < res.length; i++){
-			//set var to hold best total diff in answers and best friend index
-			// bestDiff = 40; //worst possible match
-			// bestFriend = res[1];
-			
-			// set var = 0 for current total diff
-			let currentDiff =0;
+		for(var i = 1; i < (res.length-1); i++){
+		
 			
 			// call evalFriend() to the friend in the database at [i]
-			evalFriend(res[i]);
+			evalFriend(res[i], res[user]);
 			//console.log(res[i].name);
 			// if the current total diff < best total diff, reset the best and the best friend index with current
 			if( currentDiff < bestDiff){
 				bestFriend = res[i].name;
+				console.log("NEW BFF is" + bestFriend);
 				bestDiff = currentDiff;
+			}
+			else{
+				console.log(currentDiff + "CD");
+				console.log(bestDiff + "BD");
 			}
 
 			//console.log("Best friend is" + res[i].name);
 		} //end of first friend loop
-
 		console.log("the best diff is " + bestDiff + " and the best friend is " + bestFriend);
+
 	}); //end .done
 
-	function evalFriend(data){
+	function firstFriend(init, surveyUser){
+		console.log(init);
+		console.log(surveyUser);
+		evalFriend(init, surveyUser);
+		bestDiff = currentDiff;
+		bestFriend = init.name;
+	}; //end firstFriend
+
+
+	function evalFriend(data, user){
 	//evaluate the user against a person in database by looping through user and res[i] answers,
 		//find the absolute difference between the answers at [i] 
-		var Q1 = Math.abs(lisa.Q1 - data.Q1);
-		var Q2 = Math.abs(lisa.Q2 - data.Q2);
-		var Q3 = Math.abs(lisa.Q3 - data.Q3);
-		var Q4 = Math.abs(lisa.Q4 - data.Q4);
-		var Q5 = Math.abs(lisa.Q5 - data.Q5);
-		var Q6 = Math.abs(lisa.Q6 - data.Q6);
-		var Q7 = Math.abs(lisa.Q7 - data.Q7);
-		var Q8 = Math.abs(lisa.Q8 - data.Q8);
-		var Q9 = Math.abs(lisa.Q9 - data.Q9);
-		var Q10 = Math.abs(lisa.Q10 - data.Q10);
+		var Q1 = Math.abs(user.Q1 - data.Q1);
+		var Q2 = Math.abs(user.Q2 - data.Q2);
+		var Q3 = Math.abs(user.Q3 - data.Q3);
+		var Q4 = Math.abs(user.Q4 - data.Q4);
+		var Q5 = Math.abs(user.Q5 - data.Q5);
+		var Q6 = Math.abs(user.Q6 - data.Q6);
+		var Q7 = Math.abs(user.Q7 - data.Q7);
+		var Q8 = Math.abs(user.Q8 - data.Q8);
+		var Q9 = Math.abs(user.Q9 - data.Q9);
+		var Q10 = Math.abs(user.Q10 - data.Q10);
 
 
-		var currentDiff = Q1 + Q2 + Q3 + Q4 + Q5 + Q6 + Q7 + Q8 + Q9 + Q10;
-		console.log(currentDiff + "CURRENT DIFF")
+		currentDiff = Q1 + Q2 + Q3 + Q4 + Q5 + Q6 + Q7 + Q8 + Q9 + Q10;
 		//add each absolute difference to the current total diff
 
 	}; //end of evalFriend 
