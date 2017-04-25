@@ -142,7 +142,7 @@ RESULTS PAGE
 =====================================================*/
 
 .item {
-	height: 100%;
+	height: 400px;
 }
 
 #carousel-example-generic {
@@ -156,6 +156,13 @@ RESULTS PAGE
 .results-title {
 	margin-top: 25px;
 }
+
+.results-image {
+	max-width: 100%;
+	height: 100%;
+}
+
+
 
 
 
