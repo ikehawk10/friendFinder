@@ -7,7 +7,7 @@ const mysql = require('mysql');
 const router = express.Router();
 
 //Declare configurations for our database
-const connection;
+var connection;
 
 if(process.env.JAWSDB_URL){
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
