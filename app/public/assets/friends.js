@@ -13,7 +13,9 @@ let currentDiff;
 		console.log(res); //logging it to parse through it
 
 		//delete old data from the table to avoid duplicates.
-		$('#dataTable').html('');
+		$('#match-name').html('');
+		$('#match-location').html('');
+		$('#match-hobbies').html('');
 
 		//placeholder value to hold our upcoming friend info.
 		var dataToInsert = "";
@@ -36,7 +38,7 @@ let currentDiff;
 			//console.log(res[i].name);
 			// if the current total diff < best total diff, reset the best and the best friend index with current
 			if( currentDiff < bestDiff){
-				bestFriend = res[i].name;
+				bestFriend = res[i];
 				console.log("NEW BFF is" + bestFriend);
 				bestDiff = currentDiff;
 			}
@@ -47,8 +49,8 @@ let currentDiff;
 
 			//console.log("Best friend is" + res[i].name);
 		} //end of first friend loop
-		console.log("the best diff is " + bestDiff + " and the best friend is " + bestFriend);
-
+		//console.log("the best diff is " + bestDiff + " and the best friend is " + bestFriend);
+		sendData();
 	}); //end .done
 
 	function firstFriend(init, surveyUser){
@@ -56,7 +58,7 @@ let currentDiff;
 		console.log(surveyUser);
 		evalFriend(init, surveyUser);
 		bestDiff = currentDiff;
-		bestFriend = init.name;
+		bestFriend = init;
 	}; //end firstFriend
 
 
@@ -80,6 +82,14 @@ let currentDiff;
 
 	}; //end of evalFriend 
 
+	function sendData(){
+		$('#match-image').attr('src', bestFriend.photo);
+		$('#match-name').html(bestFriend.name);
+		$('#match-location').html(bestFriend.city);
+		$('#match-hobbies').html(bestFriend.hobbies);
+
+		console.log(bestFriend.name);
+	}
 
 }); //end of document ready
 

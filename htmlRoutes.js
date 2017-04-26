@@ -53,7 +53,9 @@ router.post('/survey', function(req, res){
 
 	let name = req.body.name;
 	let photo = req.body.photo;
-	let Q1 = req.body.Q1;
+	let city = req.body.city;
+	let hobbies = req.body.hobbies;
+	let Q1 = parseInt(req.body.Q1);
 	let Q2 = parseInt(req.body.Q2);
 	let Q3 = parseInt(req.body.Q3);
 	let Q4 = parseInt(req.body.Q4);
@@ -65,7 +67,7 @@ router.post('/survey', function(req, res){
 	let Q10 = parseInt(req.body.Q10);
 	
 
-	connection.query('INSERT INTO friends(name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', [name, photo, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]);
+	connection.query('INSERT INTO friends(name, photo, city, hobbies, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [name, photo, city, hobbies, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]);
 
 	res.redirect('/results');
 });
