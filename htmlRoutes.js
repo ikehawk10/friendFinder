@@ -7,12 +7,18 @@ const mysql = require('mysql');
 const router = express.Router();
 
 //Declare configurations for our database
-const connection = mysql.createConnection({
-	host:'localhost',
-	user:'root',
-	password:'root',
-	database:'friendFinder'
-});
+const connection;
+
+if(process.env.JAWSDB_URL){
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+	connection = mysql.createConnection({
+		host:'localhost',
+		user:'root',
+		password:'root',
+		database:'friendFinder'
+	});
+}
 
 //Connect to our Database
 connection.connect();
